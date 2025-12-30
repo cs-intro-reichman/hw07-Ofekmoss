@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class IsSorted {
 
     // Public function: called by the user
@@ -7,8 +9,10 @@ public class IsSorted {
 
     // Helper recursive function
     private static boolean isSorted(int[] a, int i) {
-        //// Replace the following statement with your code
-        return false; 
+        if (a.length == 0) {
+            return true;
+        }
+        return a[0] >= i && isSorted(Arrays.copyOfRange(a, 1, a.length), a[0]); 
     }
 
     public static void main(String[] args) {
