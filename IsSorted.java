@@ -11,8 +11,11 @@ public class IsSorted {
     private static boolean isSorted(int[] a, int i) {
         if (a.length == 0) {
             return true;
+        } else if (a.length == i+2) {
+            return a[i] <= a[i+1];
+        } else {
+            return a[i] <= a[i+1] && isSorted(a, i+1); 
         }
-        return a[0] >= i && isSorted(Arrays.copyOfRange(a, 1, a.length), a[0]); 
     }
 
     public static void main(String[] args) {
